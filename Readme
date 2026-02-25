@@ -1,0 +1,45 @@
+🧩 Problem Statement
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+nums1 has a length of m + n, where:
+First m elements are valid
+Last n elements are 0 (placeholders)
+nums2 has n elements
+✅ Goal
+Modify nums1 in-place so that it contains the merged sorted array.
+💡 Approach (Using Extra Array)
+Create a temporary array mix of size m + n
+Use two pointers:
+i → traverse nums1
+j → traverse nums2
+Compare elements and store the smaller one in mix
+Copy remaining elements (if any)
+Copy mix back into nums1
+  // 🔥 Copy back to num1
+for (int x = 0; x < m + n; x++) {
+    num1[x] = mix[x];
+}
+💡 Why this is needed
+
+You created a new array mix and stored the merged result there.
+
+But the problem requires modifying nums1 in-place.
+
+So unless you copy mix → nums1, your answer is ignored.
+
+🧠 Quick understanding
+
+Think of it like:
+
+mix = temporary answer
+
+nums1 = final answer (must be updated)
+
+⚠️ Important detail
+
+You must copy all m + n elements, not just m.
+
+✅ Your full logic now works perfectly
+
+Merge into mix ✔️
+
+Copy back to nums1 ✔️
